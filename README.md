@@ -40,4 +40,28 @@ Firmware development and debugging are performed using the Segger J-Link program
 
 ---
 
-For further assistance with hardware or firmware, please refer to the STM32 and J-Link official documentation or contact the project maintainer.
+
+## Module Working Principle (HC-08 Wireless UART Bridge)
+
+The diagram below illustrates how two microcontroller units (MCUs) communicate wirelessly using HC-08 Bluetooth modules, replacing traditional wired UART serial communication.
+
+![Module Working Principle](module_working_principle.png)  <!-- Rename relay.png to module_working_principle.png if you want to use this image -->
+
+- **Traditional wired communication:**  
+  Two MCUs communicate via UART lines — RXD (Receive Data) and TXD (Transmit Data) — with direct cross-wiring for full-duplex communication.
+
+- **Wireless communication with HC-08 modules:**  
+  Each MCU connects to an HC-08 Bluetooth module through UART lines (TXD, RXD), ground (GND), and power (VCC, typically 3.3V).  
+
+- **Data transmission:**  
+  The HC-08 modules establish a wireless serial bridge. Data transmitted from the MCU’s TXD pin is sent wirelessly by the first HC-08 module to the paired HC-08 module on the other side, which forwards it to the RXD pin of the second MCU, and vice versa.
+
+- **Result:**  
+  The wired UART connection is replaced with a transparent wireless UART link, preserving full-duplex serial communication without physical cables.
+
+- **Advantages:**  
+  - Eliminates the need for UART wiring between devices.  
+  - Enables flexible device placement and mobility.  
+  - Simplifies system wiring and installation.
+
+---
