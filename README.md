@@ -45,7 +45,7 @@ Firmware development and debugging are performed using the Segger J-Link program
 
 The diagram below illustrates how two microcontroller units (MCUs) communicate wirelessly using HC-08 Bluetooth modules, replacing traditional wired UART serial communication.
 
-![Module Working Principle](hc08.png)  <!-- Rename relay.png to module_working_principle.png if you want to use this image -->
+![Module Working Principle](hc08.png) 
 
 - **Traditional wired communication:**  
   Two MCUs communicate via UART lines — RXD (Receive Data) and TXD (Transmit Data) — with direct cross-wiring for full-duplex communication.
@@ -64,4 +64,34 @@ The diagram below illustrates how two microcontroller units (MCUs) communicate w
   - Enables flexible device placement and mobility.  
   - Simplifies system wiring and installation.
 
+---
+
+## Hardware Components Description
+
+This PCB integrates several key surface-mount components to implement the STM32 + HC08 Bluetooth relay control module:
+
+- **STM32 Microcontroller (U2)**  
+  The main controller chip responsible for relay control logic and Bluetooth communication. Typically a low-power ARM Cortex-M series MCU.
+
+- **HC-08 Bluetooth Module (U3)**  
+  Provides wireless serial communication via Bluetooth Low Energy (BLE), enabling remote control of the relay through UART interface.
+
+- **Relay (SRD-12VDC-SL-C, Blue Component)**  
+  A 12V coil relay capable of switching up to 10A at 250VAC or 30VDC, used to control external high-power loads.
+
+- **Voltage Regulators and Power Filtering (U1, C1, C2, C10, C11, etc.)**  
+  Ensure stable power supply and filter out electrical noise to protect sensitive components and ensure reliable operation.
+
+- **Crystal Oscillator (Y1)**  
+  Provides the clock signal necessary for the STM32 MCU to operate at the specified frequency.
+
+- **Connectors (Green Terminal Blocks)**  
+  Facilitate wiring connections for power input (12V, GND) and relay outputs: Normally Open (NO), Common (COM), and Normally Closed (NC).
+
+- **Programming Interface Pins (SWDIO, SWCLK, GND, BOOT0)**  
+  Used for firmware flashing and debugging via external programmers such as Segger J-Link.
+
+- **Passive Components (Resistors R1-R5, Capacitors C3-C16, Diodes D1-D4)**  
+  Employed for signal conditioning, voltage protection, current limiting, and noise suppression.
+![Hareware](relay_out.jpg) 
 ---
