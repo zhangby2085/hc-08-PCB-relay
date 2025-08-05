@@ -45,7 +45,7 @@ Firmware development and debugging are performed using the Segger J-Link program
 
 The diagram below illustrates how two microcontroller units (MCUs) communicate wirelessly using HC-08 Bluetooth modules, replacing traditional wired UART serial communication.
 
-![Module Working Principle](module_working_principle.png)  <!-- Rename relay.png to module_working_principle.png if you want to use this image -->
+![Module Working Principle](hc08.png)  <!-- Rename relay.png to module_working_principle.png if you want to use this image -->
 
 - **Traditional wired communication:**  
   Two MCUs communicate via UART lines — RXD (Receive Data) and TXD (Transmit Data) — with direct cross-wiring for full-duplex communication.
